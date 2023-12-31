@@ -469,30 +469,6 @@ class SimpleSOM:
         knn_classifier = KNeighborsClassifier(n_neighbors=K)
         knn_classifier.fit(flattened_som_W, label)
         return knn_classifier.predict(X_test)
-
-    # def calculate_bmu_and_labels(self):
-    #     """Calculate the BMU for each observation and save the label.
-
-    #     Args:
-    #         None.
-
-    #     Returns:
-    #         BMUs (list): list of BMU for each observation.
-    #         BMU_labels (list): list of labels for each BMU.
-    #     """
-    #     if len(self.X_train) != len(self.y_train):
-    #         raise ValueError("The lengths of X_train and labels must be equal.")
-    #     if self.__BMUs is None or self.__BMU_labels is None:
-    #         BMUs = []
-    #         BMU_labels = []
-    #         for n in range(len(self.X_train)):
-    #             _, BMU = self.winning_neuron(self.X_train[n])
-    #             BMUs.append(BMU)
-    #             BMU_labels.append(self.y_train[n])
-    #         self.__BMUs = BMUs
-    #         self.__BMU_labels = BMU_labels
-    #         self.__BMU_label_combinations = list(zip(BMUs, BMU_labels))
-    #     return BMUs, BMU_labels
     
     def __parallel_bmu_and_labels__(self, n):
         """Compute the BMU neuron."""
