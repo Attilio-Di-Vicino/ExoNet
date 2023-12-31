@@ -1,0 +1,6 @@
+# $ conda env create --file environment.yml
+name: exonet
+channels:
+  - conda-forge
+  - defaults
+prefix: /home/attilio/miniconda3/envs/exonet
