@@ -1,8 +1,7 @@
 from utils.mission import Mission
 
 def replace_label(data, mission=Mission.KEPLER):
-    """ 
-    Replace labels in the data based on the specified mission.
+    """Replace labels in the data based on the specified mission.
 
     Args:
         data (DataFrame): The observation data.

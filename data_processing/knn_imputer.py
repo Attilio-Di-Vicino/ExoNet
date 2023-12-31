@@ -6,8 +6,8 @@ import math
 from utils.util import print_count_nan
 
 def get_q_approximation(q):
-    """
-    Compute an approximation of q to produce odd numbers from 0 to the square root of N.
+    """Compute an approximation of q to produce odd numbers
+    from 0 to the square root of N.
 
     Args:
         q (int): Integer.
@@ -18,8 +18,7 @@ def get_q_approximation(q):
     return 2 * q + 1
 
 def compute_values_of_k(X_train):
-    """
-    Calculate the possible values of k.
+    """Calculate the possible values of k.
 
     Args:
         X_train (DataFrame): Observations.
@@ -33,8 +32,7 @@ def compute_values_of_k(X_train):
     return values_of_k
 
 def k_nearest_neighbors_imputer(X_train, index_of_k=None):
-    """
-    KNN imputer is a method often used for handling missing values. It calculates the similarity
+    """KNN imputer is a method often used for handling missing values. It calculates the similarity
     between the known examples and the observation with the missing value.
     Select the k most similar known samples and use their values to calculate an
     estimated value for the missing data. Similarity can be measured using different metrics,
@@ -67,8 +65,7 @@ def k_nearest_neighbors_imputer(X_train, index_of_k=None):
     return X_train_imputed
 
 def compute_mean_std_knn(X_train, k_values):
-    """
-    Computes mean and standard deviation before and after imputation using KNN.
+    """Computes mean and standard deviation before and after imputation using KNN.
 
     Args:
         X_train (DataFrame): Original features.
@@ -95,8 +92,7 @@ def compute_mean_std_knn(X_train, k_values):
     return stats_before_imputation, stats_after_imputation
 
 def print_and_compute_mean_std(X_train, k_values, stats_before_imputation, stats_after_imputation):
-    """
-    Prints and computes mean and standard deviation differences before and after imputation
+    """Prints and computes mean and standard deviation differences before and after imputation
     for different k values.
 
     Args:
@@ -137,8 +133,7 @@ def print_and_compute_mean_std(X_train, k_values, stats_before_imputation, stats
     return sum_difference_mean, sum_difference_std
 
 def plot_diff_mean_std(k_values, sum_difference_mean, sum_difference_std):
-    """
-    Plots the sum of mean and std differences between before and after imputation
+    """Plots the sum of mean and std differences between before and after imputation
     for different k values.
 
     Args:
@@ -161,8 +156,7 @@ def plot_diff_mean_std(k_values, sum_difference_mean, sum_difference_std):
     plt.show()
 
 def compute_best_value_of_k(k_values, sum_difference_mean, sum_difference_std):
-    """
-    Computes the best value of k based on the total difference.
+    """Computes the best value of k based on the total difference.
 
     Args:
         k_values (list): List of k values for KNN imputation.
@@ -182,8 +176,7 @@ def compute_best_value_of_k(k_values, sum_difference_mean, sum_difference_std):
     return best_k
 
 def plot_mean_best_k(X_train, best_k, stats_before_imputation, stats_after_imputation):
-    """
-    Plots the mean of features before and after imputation for the best k.
+    """Plots the mean of features before and after imputation for the best k.
 
     Args:
         X_train (DataFrame): Original features.
@@ -209,8 +202,7 @@ def plot_mean_best_k(X_train, best_k, stats_before_imputation, stats_after_imput
     plt.show()
 
 def plot_std_best_k(X_train, best_k, stats_before_imputation, stats_after_imputation):
-    """
-    Plots the standard deviation of features before and after imputation for the best k.
+    """Plots the standard deviation of features before and after imputation for the best k.
 
     Args:
         X_train (DataFrame): Original features.
