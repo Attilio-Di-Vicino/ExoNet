@@ -38,14 +38,18 @@ class SOMGridSearch:
         # Train the SOM
         X_train = X_train.copy()
         _ = som.fit(X_data=X_train)
-        predicted_1 = som.predict(X_train=X_train, y_train=y_train, X_test=X_test, K=None)
-        predicted_2 = som.predict_kw(X_train, y_train, X_test, K=None)
-        predicted_3 = som.predict_kcw(X_train, y_train, X_test, K=None)
+        # predicted_1 = som.predict(X_train=X_train, y_train=y_train, X_test=X_test, K=None)
+        # predicted_2 = som.predict_kw(X_train, y_train, X_test, K=None)
+        # predicted_3 = som.predict_kcw(X_train, y_train, X_test, K=None)
         predicted_4 = som.predict_knn(X_test, K=None)
-        accuracy_1 = accuracy_score(y_test, predicted_1)
-        accuracy_2 = accuracy_score(y_test, predicted_2)
-        accuracy_3 = accuracy_score(y_test, predicted_3)
+        # accuracy_1 = accuracy_score(y_test, predicted_1)
+        # accuracy_2 = accuracy_score(y_test, predicted_2)
+        # accuracy_3 = accuracy_score(y_test, predicted_3)
         accuracy_4 = accuracy_score(y_test, predicted_4)
+        accuracy_1 = 0
+        accuracy_2 = 0
+        accuracy_3 = 0
+        # accuracy_4 = 0
         accuracy = max(accuracy_1, accuracy_2, accuracy_3, accuracy_4)
         return accuracy, params
 

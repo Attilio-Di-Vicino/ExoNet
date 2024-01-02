@@ -36,12 +36,12 @@ class SimpleSOM:
         """
         if len(X_train) != len(y_train):
             raise ValueError("The lengths of X_train and labels must be equal.")
-        if max_iter < X_train.shape[0]:
+        if max_iter < (X_train.shape[0] * 0.7):
             warnings.warn(
                 (
                     f"Warning: max_iter ({max_iter}) is less than the"
-                    f"number of training examples ({X_train.shape[0]})"
-                    "the SOM could be trained with only a few observations."
+                    f" number of training examples ({X_train.shape[0]})"
+                    " the SOM could be trained with only a few observations."
                 ),
                 UserWarning,
             )
@@ -370,7 +370,7 @@ class SimpleSOM:
         """
         winner_labels = []
         flattened_som_W = self.W.reshape(-1, self.W.shape[-1])
-        nn_model = NearestNeighbors(n_neighbors=K, n_jobs=-1)
+        nn_model = NearestNeighbors(n_neighbors=K, n_jobs=self.n_jobs)
         nn_model.fit(flattened_som_W)
 
         for t in range(X_test.shape[0]):
