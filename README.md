@@ -1,6 +1,6 @@
 # ExoNet: A Machine Learning Classifier for Vetting Planet Candidates in TESS Data
 
-![Transit Animation](docs/transit-method-single-planet.mp4)
+![Transit Animation](docs/transit-method-single-planet.gif)
 
 ## Background
 
@@ -27,7 +27,7 @@ Based on this dataset, various ML algorithms have been explored, ranging from su
    ```bash
    conda create --name exonet --file requirements.txt
    ```
-   
+
 ## License
 
 This project is licensed under the [GNU GENERAL PUBLIC LICENSE](LICENSE).
