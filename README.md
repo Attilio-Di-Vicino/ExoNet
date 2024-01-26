@@ -3,7 +3,8 @@
 ![Transit Animation](docs/transit-method-single-planet.mp4)
 
 ## Background
-ExoNet is a repository created for the testing of my thesis for bachelor degree in computer science at university of Naples Parthenope.
+
+ExoNet is a repository created for testing the machine learning classifier developed as part of my bachelor's thesis in computer science at the University of Naples Parthenope.
 
 ## Abstract
 
@@ -15,33 +16,36 @@ The goal of this work is to automate the identification process of the most prom
 
 Based on this dataset, various ML algorithms have been explored, ranging from supervised approaches to unsupervised ones. Among the supervised approaches that we tested, the Random Forest model achieves the best performance, with an accuracy of 83.69%, and it is also easily interpretable. Among the unsupervised approaches, the Self-Organizing Maps are particularly useful for the visualization of the data. We also explored their use for binary classification and obtained an accuracy of 77.57%, which, although lower than the one achieved by the Random Forest, is very promising and suggests further opportunities for study based on non-linear maps.
 
-## Installazione
+## Installation
 
-1. Clona il repository
+1. Clone the repository
    ```bash
    git clone https://github.com/Attilio-Di-Vicino/ExoNet.git
    ```
 
-2. Installa i requirements
+2. Install the requirements
    ```bash
    conda create --name exonet --file requirements.txt
    ```
-
-## Licenza
+   
+## License
 
 This project is licensed under the [GNU GENERAL PUBLIC LICENSE](LICENSE).
 
 ## Citation
-if you want cite me
-    ```bash
-    @misc{github.exonet,
-        title = {{ExoNet}},
-        howpublished = {\url{https://github.com/Attilio-Di-Vicino/ExoNet}},
-        author = {Attilio Di Vicino},
-        year = {2023},
-        description = {ExoNet is a repository created for the testing of my thesis entitled "A Machine Learning Classifier for Vetting Planet Candidates in TESS Data".}
-    }
-    ```
+
+If you want to cite this project, you can use the following BibTeX entry:
+
+```bash
+@misc{github.exonet,
+    title = {{ExoNet}},
+    howpublished = {\url{https://github.com/Attilio-Di-Vicino/ExoNet}},
+    author = {Attilio Di Vicino},
+    year = {2023},
+    description = {ExoNet is a repository created for testing my thesis entitled "A Machine Learning Classifier for Vetting Planet Candidates in TESS Data".}
+}
+
+```
 
 ## Contact 
 
