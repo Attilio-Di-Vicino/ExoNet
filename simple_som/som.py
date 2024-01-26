@@ -199,9 +199,10 @@ class SimpleSOM:
                                                             self.max_distance)
             params['lr'][epoch] = learning_rate
             params['nr'][epoch] = neighbourhood_range
-            t = np.random.randint(0, high=X_data.shape[0]) # random index of traing data
+            # t = np.random.randint(0, high=X_data.shape[0]) # random index of traing data
+            t = epoch % X_data.shape[0]                
             shortest_distance, winner = self.winning_neuron(X_data[t])
-            params['QE'] += shortest_distance
+            params['QE'] += shortest_distance # ???
             params['QE'] /= X_data.shape[0]
             params['errors'][epoch] = params['QE']
             for row in range(self.num_rows):
@@ -213,6 +214,58 @@ class SimpleSOM:
                 end_time = t1 if epoch == 0 else t1 * 1000
                 self.__help_fit("Iteration", epoch+1, params['QE'],
                                 params['lr'][epoch], params['nr'][epoch], end_time)
+        end_time = time.time() - start_time
+        self.__QE = params['QE']
+        self.__help_fit("SOM training completed", epoch+1, params['QE'],
+                        params['lr'][epoch], params['nr'][epoch], end_time)
+        return params
+    
+    def fit2(self, X_data, verbose=0):
+        """Map training method.
+        
+        Args:
+            X_data (numpy.ndarray): observation.
+            verbode (int): default = 0, if it's > 1 print
+                            the progress each 100 observation.
+
+        Returns:
+            params (dict): dict that contains:
+                QE (int): final quantization error.
+                errors (numpy.ndarray): all quantization errors.
+                lr (numpy.ndarray): all learing rate.
+                nr (numpy.ndarray): all neighbourhood radius
+        """
+        params = {
+            'QE': 0,
+            'errors': np.zeros(self.max_iter),
+            'lr': np.zeros(self.max_iter),
+            'nr': np.zeros(self.max_iter)
+        }
+        start_time = time.time()
+        epochs = self.max_iter // self.X_train.shape[0]
+        for epoch in range(epochs):
+            t1 = time.time()
+            params['QE'] = 0
+            for t in range(self.X_train.shape[0]):
+                learning_rate, neighbourhood_range = self.decay(epoch, 
+                                                                self.max_iter,
+                                                                self.max_learning_rate,
+                                                                self.max_distance)
+                params['lr'][epoch] = learning_rate
+                params['nr'][epoch] = neighbourhood_range
+                # t = np.random.randint(0, high=X_data.shape[0]) # random index of traing data
+                shortest_distance, winner = self.winning_neuron(X_data[t])
+                params['QE'] += shortest_distance # ???
+                for row in range(self.num_rows):
+                    for col in range(self.num_cols):
+                        if self.distance_nr([row,col],winner) <= neighbourhood_range:
+                            self.W[row][col] += learning_rate*(X_data[t]-self.W[row][col])
+            params['QE'] /= X_data.shape[0]
+            params['errors'][epoch] = params['QE']
+            t1 = time.time() - t1
+            end_time = t1 if epoch == 0 else t1 * 1000
+            self.__help_fit("Iteration", epoch+1, params['QE'],
+                            params['lr'][epoch], params['nr'][epoch], end_time)
         end_time = time.time() - start_time
         self.__QE = params['QE']
         self.__help_fit("SOM training completed", epoch+1, params['QE'],
