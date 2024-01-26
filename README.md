@@ -1,6 +1,11 @@
-# ExoNet
+# ExoNet: A Machine Learning Classifier for Vetting Planet Candidates in TESS Data
 
-## A Machine Learning Classifier for Vetting Planet Candidates in TESS Data
+![Transit Animation](docs/transit-method-single-planet.mp4)
+
+## Background
+ExoNet is a repository created for the testing of my thesis for bachelor degree in computer science at university of Naples Parthenope.
+
+## Abstract
 
 In this thesis, we explore the application of Machine Learning (ML) techniques to the classification of exoplanets, focusing on data from NASA's TESS telescope. The TESS space telescope, currently in orbit, detects exoplanets by using the transit method, i.e., by measuring the relative decrease in stellar luminosity caused by a planet crossing the stellar disk along the line of sight.
 
@@ -25,6 +30,19 @@ Based on this dataset, various ML algorithms have been explored, ranging from su
 ## Licenza
 
 This project is licensed under the [GNU GENERAL PUBLIC LICENSE](LICENSE).
-```
 
-Queste sono solo alcune piccole modifiche stilistiche per rendere il README più leggibile e chiaramente strutturato. Puoi personalizzare ulteriormente il README aggiungendo informazioni sulla struttura della repo, eventuali esempi di utilizzo, o qualsiasi altra cosa ritenuta rilevante per gli utenti che potrebbero utilizzare o contribuire al tuo progetto.
+## Citation
+if you want cite me
+    ```bash
+    @misc{github.exonet,
+        title = {{ExoNet}},
+        howpublished = {\url{https://github.com/Attilio-Di-Vicino/ExoNet}},
+        author = {Attilio Di Vicino},
+        year = {2023},
+        description = {ExoNet is a repository created for the testing of my thesis entitled "A Machine Learning Classifier for Vetting Planet Candidates in TESS Data".}
+    }
+    ```
+
+## Contact 
+
+Attilio Di Vicino: attilio.divicino001@studenti.uniparthenope.it
